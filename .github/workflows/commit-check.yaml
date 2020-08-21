@@ -1,4 +1,4 @@
-name: 'Commit Message Check'
+name: 'Lint Commit Message'
 on:
   pull_request:
     types:
