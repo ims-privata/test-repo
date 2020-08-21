@@ -17,9 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-         fetch-depth: 0
+          fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v2.0.1
         with:
           firstParent: true
           failOnWarnings: true 
-
