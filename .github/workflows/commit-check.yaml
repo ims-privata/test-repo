@@ -12,18 +12,14 @@ on:
       - 'releases/*'
 
 jobs:
-  check-commit-message:
-    name: Check Commit Message
+  commitlint:
     runs-on: ubuntu-latest
     steps:
-      - name: Check Commit Type
-        uses: gsactions/commit-message-checker@v1
+      - uses: actions/checkout@v2.0.1
         with:
-          pattern: '\[[^]]+\] .+$'
-          flags: 'gm'
-          error: 'Your first line has to contain a commit type like "[BUGFIX]".'
-      - name: Check Line Length
-        uses: gsactions/commit-message-checker@v1
+         fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v2.0.1
         with:
-          pattern: '^[^#].{74}'
-          error: 'The maximum line length of 74 characters is exceeded.'
+          firstParent: true
+          failOnWarnings: true 
+
